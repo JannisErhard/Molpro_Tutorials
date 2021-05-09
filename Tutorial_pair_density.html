@@ -13089,11 +13089,11 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Input-parameters">Input parameters<a class="anchor-link" href="#Input-parameters">&#182;</a></h2><p>To perform calculation of pair densities one have to specify <strong>plotp2=1</strong> in input file. Additionally, one have to point out names of two grid-files <strong>grid1</strong> and <strong>grid2</strong> together with the number of grid-points <strong>grid1n</strong> and <strong>grid2n</strong> in each file, respectively. <strong>grid1n</strong> contains grid-points for which pair densities are calculated. <strong>grid2n</strong> contains positions of reference electron.
 Both files have the format:</p>
-<blockquote><p>$x_1, y_1, z_1$<br>
-$x_2, y_2, z_2$<br>
-$\dots$<br>
-$x_n, y_n, z_n$</p>
-</blockquote>
+
+<pre><code>x_1, y_1, z_1
+x_2, y_2, z_2
+...
+x_n, y_n, z_n</code></pre>
 <p>During calculation, files with results are written for all specified positions of reference electron. These files are named as <strong>pmat1.dat</strong>, <strong>pmat2.dat</strong>, etc.</p>
 <p>Optionally, to verify that calculations are correct, additional tests can be performed specifiyng <strong>testp2=1</strong> and <strong>ntestp2</strong>.</p>
 <p>For instance, additional line in input file might be</p>

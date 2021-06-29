@@ -8,7 +8,7 @@ from transformers import (
     AutoTokenizer,
     AutoModelForSequenceClassification,
     AdamW,
-    get_linear_schedule_with_warmup,
+    get_cosine_schedule_with_warmup,
 )
 from sklearn.metrics import mean_squared_error
 
@@ -21,13 +21,13 @@ from clrp_utils import (
 )
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-BATCH_SIZE = 8
+BATCH_SIZE = 1
 VAL_BATCH_SIZE = 16
 LR = 2.0e-5
 WARMUP_RATIO = 0.0
 EPOCHS = 3
 SEED_VAL = 1325
-VAL_STEP = 10
+VAL_STEP = 1
 DEVICE = torch.device("cuda")
 WEIGHT_DECAY = 0.01
 NUM_FOLDS = 5
@@ -101,7 +101,7 @@ for fold in range(NUM_FOLDS):
 
     total_steps = len(train_dataloader) * EPOCHS
 
-    scheduler = get_linear_schedule_with_warmup(
+    scheduler = get_cosine_schedule_with_warmup(
         optimizer,
         num_warmup_steps=WARMUP_RATIO * total_steps,
         num_training_steps=total_steps,

@@ -21,13 +21,13 @@ from clrp_utils import (
 )
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-BATCH_SIZE = 1
+BATCH_SIZE = 8
 VAL_BATCH_SIZE = 16
 LR = 2.0e-5
 WARMUP_RATIO = 0.0
 EPOCHS = 3
 SEED_VAL = 1325
-VAL_STEP = 1
+VAL_STEP = 10
 DEVICE = torch.device("cuda")
 WEIGHT_DECAY = 0.01
 NUM_FOLDS = 5
